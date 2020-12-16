@@ -26,6 +26,11 @@ public class LiveController {
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
 
+	@ResponseStatus(code = HttpStatus.NOT_FOUND, reason = "video not found")
+	@RequestMapping(method = RequestMethod.GET, path = "/")
+	public class VideoNotFoundException extends RuntimeException {
+	}
+	
 	//@ResponseStatus(HttpStatus.OK)
 	@RequestMapping(method = RequestMethod.GET, path = "/live")
 	public @ResponseBody ResponseEntity<Object> live() {
