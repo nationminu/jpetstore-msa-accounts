@@ -120,7 +120,7 @@ public class AccountController {
 			accountService.insertAccount(accounts);
 			
 			map.put("result", "OK");  
-			map.put(accounts, accounts);  
+			map.put("accounts", accounts);  
 			return new ResponseEntity<>(map, headers, HttpStatus.CREATED);  
 		}catch(Exception e){
 			map.put("result", "NOK");   
@@ -141,7 +141,7 @@ public class AccountController {
 			accountService.insertAccount(accounts);
 			
 			map.put("result", "OK");  
-			map.put(accounts, accounts);  
+			map.put("accounts", accounts);  
 			return new ResponseEntity<>(map, headers, HttpStatus.CREATED);  
 		}catch(Exception e){
 			map.put("result", "NOK");   
