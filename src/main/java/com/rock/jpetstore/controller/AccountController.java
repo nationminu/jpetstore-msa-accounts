@@ -98,11 +98,12 @@ public class AccountController {
 			//signonService.deleteSignon(userid); 
 
 			map.put("result", "OK");  
+			map.put("userid", userid);  
+			return new ResponseEntity<>(map, headers, HttpStatus.ACCEPTED);  
 		}catch(Exception e){
 			map.put("result", "NOK");   
-		}
-
-    	return new ResponseEntity<>(map, headers, HttpStatus.ACCEPTED);  
+			return new ResponseEntity<>(map, headers, HttpStatus.NO_CONTENT);  
+		} 
 	}
     
 
@@ -115,18 +116,16 @@ public class AccountController {
         
 		Map<Object, Object> map = new HashMap<>();
 		
-		try {  
-			System.out.println(accounts);
-			
+		try {   			
 			accountService.insertAccount(accounts);
 			
 			map.put("result", "OK");  
+			map.put(accounts, accounts);  
+			return new ResponseEntity<>(map, headers, HttpStatus.CREATED);  
 		}catch(Exception e){
 			map.put("result", "NOK");   
 	    	return new ResponseEntity<>(map, headers, HttpStatus.BAD_REQUEST);  
-		}
-		
-    	return new ResponseEntity<>(map, headers, HttpStatus.CREATED);  
+		} 
 	}
 
     @RequestMapping(value = "/accounts/{userid}", consumes = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.POST)
@@ -138,17 +137,15 @@ public class AccountController {
         
 		Map<Object, Object> map = new HashMap<>();
 		
-		try {  
-			System.out.println(accounts);
-			
+		try {   			
 			accountService.insertAccount(accounts);
 			
 			map.put("result", "OK");  
+			map.put(accounts, accounts);  
+			return new ResponseEntity<>(map, headers, HttpStatus.CREATED);  
 		}catch(Exception e){
 			map.put("result", "NOK");   
 	    	return new ResponseEntity<>(map, headers, HttpStatus.BAD_REQUEST);  
-		}
-		
-    	return new ResponseEntity<>(map, headers, HttpStatus.CREATED);  
+		} 
 	}
 }
