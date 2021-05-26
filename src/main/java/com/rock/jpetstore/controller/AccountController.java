@@ -38,24 +38,7 @@ public class AccountController {
 
 		return new ResponseEntity<>(map, headers, HttpStatus.OK);
 	}
-	
-	@RequestMapping(value = "/customer/{userid}", produces = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.GET)
-	public ResponseEntity<Object> get_customer(@PathVariable String userid) throws Exception {
-
-		HttpHeaders headers = new HttpHeaders();
-		headers.add("Content-Type", "application/json");
-		headers.add("Retry-After", "3600");
-
-		Account account = accountService.getAccountById(userid);
-
-		if (account == null) {
-			// return new ResponseEntity<>("{}", headers, HttpStatus.OK);
-			return new ResponseEntity<>(null, headers, HttpStatus.NOT_FOUND);
-		} else {
-			return new ResponseEntity<>(account, headers, HttpStatus.OK);
-		}
-	}
-
+	 
 	// @ResponseStatus(HttpStatus.OK)
 	@RequestMapping(value = "/accounts/all", produces = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.GET)
 	public ResponseEntity<Object> all() throws Exception {
@@ -97,7 +80,7 @@ public class AccountController {
 		headers.add("Content-Type", "application/json");
 		headers.add("Retry-After", "3600");
 
-		Account account = accountService.getAccountById(userid);
+		Accounts account = accountService.getAccountById(userid);
 
 		if (account == null) {
 			// return new ResponseEntity<>("{}", headers, HttpStatus.OK);

@@ -22,8 +22,8 @@ public class AccountService {
     public List<Account> getAccountList(){
         return accountRepository.findAll();
     }
-    public Account getAccountById(String userid){
-        return accountRepository.findByUserid(userid);
+    public Accounts getAccountById(String userid){
+        return accountsRepository.findByUserid(userid);
     }
     public void updateAccount(Account account) {
     	accountRepository.save(account);
