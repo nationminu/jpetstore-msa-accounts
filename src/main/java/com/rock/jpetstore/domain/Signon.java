@@ -11,6 +11,8 @@ public class Signon {
 	@Id
 	private String username; 
 	private String password;
+	private String role;
+    private boolean enabled;
 	
 	public String getUsername() {
 		return username;
@@ -24,7 +26,20 @@ public class Signon {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
+
+    public String getRole() {
+		return role;
+	}
+	public void setRole(String role) {
+		this.role = role;
+	}
+	public boolean isEnabled() {
+		return enabled;
+	}
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
+	}
+
 	@Override
 	public String toString() {
 		return "Signon [username=" + username + ", password=" + password + "]";
