@@ -41,6 +41,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
+		.antMatchers("/customer/**","/live","/delay","/actuator/**").permitAll()
         .anyRequest().authenticated()
         .and()
         .httpBasic();
