@@ -23,7 +23,7 @@ public class SignonController {
 
     @Autowired
     private SignonService signonService;
-   
+    
     @RequestMapping(value = "/signon/{userid}", produces = MediaType.APPLICATION_JSON_VALUE, method = RequestMethod.GET)
     public ResponseEntity<Object> get(@PathVariable String userid) throws Exception{
 
