@@ -8,6 +8,7 @@ import org.springframework.security.config.annotation.web.builders.*;
 import org.springframework.security.config.annotation.web.configuration.*;
 import org.springframework.security.core.userdetails.*;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
 
 import com.rock.jpetstore.service.UserDetailsServiceImpl;
 
@@ -46,12 +47,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         .antMatchers(HttpMethod.POST,"/accounts").permitAll()
         .anyRequest().authenticated()
         .and()
-        .httpBasic();
+        .httpBasic()
+        .and().csrf().disable();
 		//http.authorizeRequests(). 
 		//anyRequest().authenticated().
 		//and().formLogin().permitAll().and().logout().permitAll();
-		//http.authorizeRequests()
-		//.antMatchers("/**").permitAll();
+//		http.authorizeRequests()
+//		.antMatchers("/**").permitAll()
+//		.and().csrf().disable();
 		
-	}
+	} 
 }
