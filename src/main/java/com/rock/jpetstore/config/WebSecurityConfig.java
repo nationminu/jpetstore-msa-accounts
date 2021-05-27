@@ -1,6 +1,7 @@
 package com.rock.jpetstore.config;
 
 import org.springframework.context.annotation.*;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.dao.*;
 import org.springframework.security.config.annotation.authentication.builders.*;
 import org.springframework.security.config.annotation.web.builders.*;
@@ -42,11 +43,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
 		.antMatchers("/customer/**","/live","/delay","/actuator/**").permitAll()
+        .antMatchers(HttpMethod.POST,"/accounts").permitAll()
         .anyRequest().authenticated()
         .and()
         .httpBasic();
 		//http.authorizeRequests(). 
 		//anyRequest().authenticated().
 		//and().formLogin().permitAll().and().logout().permitAll();
+		//http.authorizeRequests()
+		//.antMatchers("/**").permitAll();
+		
 	}
 }
