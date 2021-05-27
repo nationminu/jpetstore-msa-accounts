@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
 @Entity
 @Table(name="signon")
 public class Signon {	 
@@ -23,8 +25,8 @@ public class Signon {
 	public String getPassword() {
 		return password;
 	}
-	public void setPassword(String password) {
-		this.password = password;
+	public void setPassword(String password) {  
+		this.password = new BCryptPasswordEncoder().encode(password);
 	}
 
     public String getRole() {
