@@ -43,8 +43,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
-		.antMatchers("/customer/**","/live","/delay","/actuator/**").permitAll()
-        //.antMatchers(HttpMethod.POST,"/accounts**").permitAll()
+		.antMatchers("/live","/delay","/actuator/**").permitAll()
+        .antMatchers(HttpMethod.POST,"/accounts").permitAll()
         .anyRequest().authenticated()
         .and()
         .httpBasic()
